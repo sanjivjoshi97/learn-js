@@ -1,28 +1,38 @@
 class PStack {
-  #id;
-  constructor() {
-    this.#id = 1;
-    this._persons = [];
-  }
+    #id;
+    _persons;
 
-  showId() {
-    return this.#id;
-  }
+    constructor() {
+        this.#id = 1;
+        this._persons = [];
+    }
+
+    showId() {
+        return this.#id;
+    }
 
 }
 
 class PStackImpl extends PStack {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  push(p) {
-    return this._persons.push(p)
-  }
+    get persons() {
+        return this._persons;
+    }
 
-  pop() {
-    return this._persons.pop().age
-  }
+    set persons(persons) {
+        this._persons = persons
+    }
+
+    push(p) {
+        return this._persons.push(p)
+    }
+
+    pop() {
+        return this._persons.pop().age
+    }
 }
 
 let pstack = new PStackImpl();
